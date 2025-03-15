@@ -18,6 +18,9 @@ public class TestUtil {
      * Folder used for temp files created during testing. Ignored by Git.
      */
     private static final Path SANDBOX_FOLDER = Paths.get("src", "test", "data", "sandbox");
+    public static final Index INDEX_FIRST_PERSON = Index.fromOneBased(1); // ✅ First person in the list
+    public static final Index INDEX_SECOND_PERSON = Index.fromOneBased(2); // ✅ Second person in the list
+    public static final Index INDEX_OUT_OF_BOUNDS = Index.fromOneBased(9999); // ❌ Invalid index (out of bounds)
 
     /**
      * Appends {@code fileName} to the sandbox folder path and returns the resulting path.

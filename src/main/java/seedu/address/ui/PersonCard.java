@@ -41,6 +41,10 @@ public class PersonCard extends UiPart<Region> {
     @FXML
     private FlowPane tags;
 
+    @FXML
+    private Label remark;
+
+
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
      */
@@ -52,8 +56,17 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         address.setText(person.getAddress().value);
         email.setText(person.getEmail().value);
+
+        // ✅ Ensure remark label is properly displayed
+        if (remark == null) {
+            remark = new Label(); // Ensure remark label is initialized
+        }
+        remark.setText(person.getRemark().value.isEmpty() ? "No remark" : "Remark: " + person.getRemark().value);
+
+        // ✅ Ensure it appears in the UI
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
     }
+
 }

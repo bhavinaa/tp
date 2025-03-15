@@ -23,7 +23,10 @@ public class Person {
 
     // Data fields
     private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
+
+    private Remark remark;
+
+    private Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
@@ -34,8 +37,24 @@ public class Person {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.remark = new Remark("");
         this.tags.addAll(tags);
     }
+
+
+    /**
+     * Constructs a Person object.
+     */
+    public Person(Name name, Phone phone, Email email, Address address, Remark remark, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, remark, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.remark = remark;
+        this.tags = new HashSet<>(tags);
+    }
+
 
     public Name getName() {
         return name;
@@ -49,14 +68,15 @@ public class Person {
         return email;
     }
 
+    /**
+     * Returns true if both persons have the same identity fields (name, phone, email).
+     * This defines a weaker notion of equality between two persons.
+     */
     public Address getAddress() {
         return address;
     }
 
-    /**
-     * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
-     * if modification is attempted.
-     */
+
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
     }
@@ -84,7 +104,6 @@ public class Person {
             return true;
         }
 
-        // instanceof handles nulls
         if (!(other instanceof Person)) {
             return false;
         }
@@ -97,9 +116,25 @@ public class Person {
                 && tags.equals(otherPerson.tags);
     }
 
+    public Remark getRemark() {
+        return remark;
+    }
+
+
+    /**
+     * Returns a new Person with an updated remark.
+     */
+    /**
+     * Returns a new Person with an updated remark.
+     */
+    public Person withRemark(Remark newRemark) {
+        return new Person(name, phone, email, address, newRemark, tags);
+    }
+
+
+
     @Override
     public int hashCode() {
-        // use this method for custom fields hashing instead of implementing your own
         return Objects.hash(name, phone, email, address, tags);
     }
 
@@ -113,5 +148,4 @@ public class Person {
                 .add("tags", tags)
                 .toString();
     }
-
 }
