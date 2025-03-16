@@ -46,13 +46,6 @@ import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Remark;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
-import seedu.address.commons.core.index.Index; // ✅ Import for Index
-import seedu.address.logic.commands.RemarkCommand; // ✅ Import for RemarkCommand
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Remark; // ✅ Import for Remark
 
 
 /**

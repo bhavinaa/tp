@@ -124,9 +124,6 @@ public class Person {
     /**
      * Returns a new Person with an updated remark.
      */
-    /**
-     * Returns a new Person with an updated remark.
-     */
     public Person withRemark(Remark newRemark) {
         return new Person(name, phone, email, address, newRemark, tags);
     }

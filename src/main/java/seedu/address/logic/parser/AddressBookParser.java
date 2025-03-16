@@ -107,7 +107,7 @@ public class AddressBookParser {
             return new WeddingOverviewCommandParser().parse(arguments);
 
         case RemarkCommand.COMMAND_WORD:
-            return new RemarkCommandParser().parse(arguments); // Now it returns a RemarkCommand when 'remark' is entered
+            return new RemarkCommandParser().parse(arguments);
 
 
         default:
