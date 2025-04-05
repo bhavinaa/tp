@@ -116,16 +116,8 @@ traditional mouse-based applications.
 
 - **Commands are case-sensitive for field values** where applicable, such as `d/VEGAN` vs. `d/vegan`.
 
-- **Enclose values in quotes if they include special characters or prefixes.**  
-  For example:  
-  Use `n/"John p/Doe"` instead of `n/John p/Doe` to avoid parsing errors.
-
-- **Duplicate prefixes will cause the command to fail unless escaped properly using `\`.**  
-  For example:  
-  `n/John \p/Doe` if a name includes the string `p/`.
-
 - **Optional parameters are shown in square brackets.**  
-  e.g., `deletePerson [INDEX]` means you provide just the index like `deletePerson 2`.
+  e.g., filterPersons [d/DIETARYRESTRICTION] [r/RSVP]
 
 <box>
 ⚠️ PDF Warning: If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
@@ -138,7 +130,6 @@ traditional mouse-based applications.
 
 You can access a help popup at any time while using Wedding Hero.
 <img src="images/helpMessage.png" alt="help message" style="max-width: 70%; height: auto;" />
-
 
 ### Viewing Help: `help`
 
@@ -195,6 +186,7 @@ Creates a new wedding in the wedding planner.
 - Using `createWedding Smith Family Wedding` will add a wedding event named "Smith Family Wedding".
 
 <box type="tip" seamless>
+
 - After using createWedding, remember to set the wedding as active using:
   setWedding John & Jane Wedding
 - Always match spacing exactly when setting or referring to a wedding — "John&JaneWedding" is not the same as "John & Jane Wedding".
@@ -289,9 +281,9 @@ Each prefix represents a specific attribute of the person:
 
 
 Allowed d/DIETARY_RESTRICTION values:
-- None
-- Vegetarian
-- Vegan
+- NONE
+- VEGETARIAN
+- VEGAN
 - HALAL
 - SHELLFISH
 - PEANUTS
@@ -299,7 +291,8 @@ Allowed d/DIETARY_RESTRICTION values:
 - FISH
 - SOY
 - SESMAE
-- NONE
+
+* The input given above is not case sensitive
 
 Allowed RSVP values:
 - YES
@@ -364,18 +357,6 @@ the command returns an unfiltered list of persons belonging to that wedding.
 - Using `filterPersons d/HALAL` displays all persons with a halal dietary restriction.
 - Running `filterPersons` displays all persons without any filter.
 
-### Showing RSVP List : `seeRSVPList`
-
-Displays the RSVP list for the current active wedding.
-
-**Format:**
-```
-seeRSVPList
-```
-
-- Retrieves and displays the RSVP list of the wedding that is currently set as active.
-- No additional arguments are required.
-- Useful for quickly reviewing which guests have responded.
 
 ## Managing Tables
 
@@ -528,23 +509,23 @@ the data of your previous WeddingHero home folder.
 --------------------------------------------------------------------------------------------------------------------
 ## Command Summary
 
-| **Action**                | **Format, Examples**                                                                                                                                                 |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **createWedding**         | `createWedding n/NAME`<br>Example: `createWedding n/John & Jane Wedding`                                                                                             |
-| **deleteWedding**         | `deleteWedding n/NAME`<br>Example: `deleteWedding n/John & Jane Wedding`                                                                                             |
-| **setWedding**            | `setWedding n/NAME`<br>Example: `setWedding n/Smith Wedding`                                                                                                         |
-| **weddingOverview**       | `weddingOverview`<br>Example: `weddingOverview`                                                                                                                      |
+| **Action**                | **Format, Examples**                                                                                                                                                      |
+|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **createWedding**         | `createWedding n/NAME`<br>Example: `createWedding n/John & Jane Wedding`                                                                                                  |
+| **deleteWedding**         | `deleteWedding n/NAME`<br>Example: `deleteWedding n/John & Jane Wedding`                                                                                                  |
+| **setWedding**            | `setWedding n/NAME`<br>Example: `setWedding n/Smith Wedding`                                                                                                              |
+| **weddingOverview**       | `weddingOverview`<br>Example: `weddingOverview`                                                                                                                           |
 | **addPerson**             | `addPerson n/NAME p/PHONE e/EMAIL a/ADDRESS d/DIETARY_RESTRICTION r/RSVP`<br/>Example: `addPerson n/John Doe p/12345678 e/johndoe@example.com a/123 Street d/Vegan r/YES` |
-| **deletePerson**          | `deletePerson INDEX`<br>Example: `deletePerson 3`                                                                                                                    |
-| **Find**                  | `Find KEYWORD`<br>Example: `Find John`                                                                                                                               |
-| **filterPersons**         | `filterPersons [d/DIETARY_RESTRICTION_FIELD] [r/RSVP_FIELD]`<br>Example: `filterPersons d/Vegan r/YES`                                                               |
-| **addTable**              | `addTable tid/TABLE_ID c/CAPACITY`<br>Example: `addTable tid/1 c/8`                                                                                                  |
-| **addPersonToTable**      | `addPersonToTable n/NAME tid/TABLE_ID`<br>Example: `addPersonToTable n/John Doe tid/1`                                                                               |
-| **deletePersonFromTable** | `deletePersonFromTable n/NAME tid/TABLE_ID`<br>Example: `deletePersonFromTable n/John Doe tid/1`                                                                     |
-| **deleteTable**           | `deleteTable tid/TABLE_ID`<br>Example: `deleteTable tid/1`                                                                                                           |
-| **findTable**             | `findTable [tid/TABLE_ID] [INDEX]`<br>Examples: `findTable tid/1` or `findTable 1`                                                                                   |
-| **getTables**             | `getTables`<br>Example: `getTables`                                                                                                                                  |
-| **Help**                  | `Help`                                                                                                                                                               |
-| **exit**                  | `exit`                                     
+| **deletePerson**          | `deletePerson INDEX`<br>Example: `deletePerson 3`                                                                                                                         |
+| **Find**                  | `Find KEYWORD`<br>Example: `Find John`                                                                                                                                    |
+| **filterPersons**         | `filterPersons [d/DIETARY_RESTRICTION_FIELD] [r/RSVP_FIELD]`<br>Example: `filterPersons d/Vegan r/YES`                                                                    |
+| **addTable**              | `addTable tid/TABLE_ID c/CAPACITY`<br>Example: `addTable tid/1 c/8`                                                                                                       |
+| **addPersonToTable**      | `addPersonToTable n/NAME tid/TABLE_ID`<br>Example: `addPersonToTable n/John Doe tid/1`                                                                                    |
+| **deletePersonFromTable** | `deletePersonFromTable n/NAME tid/TABLE_ID`<br>Example: `deletePersonFromTable n/John Doe tid/1`                                                                          |
+| **deleteTable**           | `deleteTable tid/TABLE_ID`<br>Example: `deleteTable tid/1`                                                                                                                |
+| **findTable**             | `findTable [tid/TABLE_ID] [INDEX]`<br>Examples: `findTable tid/1                                                                                                          |
+| **getTables**             | `getTables`<br>Example: `getTables`                                                                                                                                       |
+| **Help**                  | `Help`                                                                                                                                                                    |
+| **exit**                  | `exit`                                                                                                                                                                    
 
 
