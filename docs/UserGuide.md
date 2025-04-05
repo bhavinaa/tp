@@ -521,3 +521,4 @@ the data of your previous WeddingHero home folder.
 | **getTables**             | `getTables`<br>Example: `getTables`                                                                                                                                  |
 | **Help**                  | `Help`                                                                                                                                                               |
 | **exit**                  | `exit`                                     
+
