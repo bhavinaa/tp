@@ -84,14 +84,14 @@ traditional mouse-based applications.
 4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar WeddingHero.jar`
    command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   
+
 <img src="images/Ui.png" alt="Ui" style="max-width: 75%; height: auto;" />
 
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will
    open the help window.<br>
 - `addPerson n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/None r/YES` : Adds a person named John Doe with RSVP status and dietary preference to the active wedding.
-- `createWedding n/Jack and Jill's Wedding` : Creates a new wedding called "Jack and Jill's Wedding". 
+- `createWedding n/Jack and Jill's Wedding` : Creates a new wedding called "Jack and Jill's Wedding".
 - `exit` : Exits the application.
 
 
@@ -113,9 +113,8 @@ traditional mouse-based applications.
 - **Commands are case-sensitive for field values** where applicable, such as `d/VEGAN` vs. `d/vegan`.
 
 - **Optional parameters are shown in square brackets.**  
+  e.g., `filterPersons [d/DietaryRestriction] [r/RSVP]`.
 
-  e.g., filterPersons [d/DIETARYRESTRICTION] [r/RSVP]
-  
 <box>
 ⚠️ PDF Warning: If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
@@ -127,6 +126,7 @@ traditional mouse-based applications.
 
 You can access a help popup at any time while using Wedding Hero.
 <img src="images/helpMessage.png" alt="help message" style="max-width: 70%; height: auto;" />
+
 
 ### Viewing Help: `help`
 
@@ -142,11 +142,11 @@ Wedding Hero helps you manage **multiple weddings** with ease by using a **“se
 
 1. **Create a wedding** using the `createWedding` command.
 2. **Set the wedding as active** using the `setWedding` command.
-3. Once a wedding is set as active, all operations like adding persons, tables, or assigning seats apply **only to that 
+3. Once a wedding is set as active, all operations like adding persons, tables, or assigning seats apply **only to that
    active wedding**.
 4. You can view and manage each wedding’s persons, tables, and RSVP details independently.
 
->  **Note:** You can only interact with one wedding at a time. You must `setWedding` before performing most other 
+>  **Note:** You can only interact with one wedding at a time. You must `setWedding` before performing most other
 > commands (e.g., `addPerson`, `addTable`, etc.).
 
 ---
@@ -185,7 +185,6 @@ Creates a new wedding in the wedding planner.
 - Using `createWedding Smith Family Wedding` will add a wedding event named "Smith Family Wedding".
 
 <box type="tip" seamless>
-
 - After using createWedding, remember to set the wedding as active using:
   setWedding John & Jane Wedding
 - Always match spacing exactly when setting or referring to a wedding — "John&JaneWedding" is not the same as "John & Jane Wedding".
@@ -291,9 +290,6 @@ Allowed d/DIETARY_RESTRICTION values:
 - SOY
 - SESMAE
 
-* The input given above is not case sensitive
-
-
 Allowed RSVP values:
 - YES
 - NO
@@ -340,7 +336,7 @@ filterPersons [d/DIETARYRESTRICTION] [r/RSVP]
 ```
 - Both parameters are optional for this command.
 - Note that you can only key in one of each parameter for this command.
-- Using invalid prefixes such as `n/NAME` will be treated as `filterPersons` as if no prefixes are given 
+- Using invalid prefixes such as `n/NAME` will be treated as `filterPersons` as if no prefixes are given
 - **Dietary Restriction Filter:** Use the prefix `d/` followed by a valid dietary restriction value
   (e.g., `VEGAN`, `VEGETARIAN`). Include this if you want to filter persons based on dietary needs.
 - **RSVP Filter:** Use the prefix `r/` followed by a valid RSVP status (e.g., `YES`, `NO`).
@@ -478,13 +474,13 @@ the acceptable range). Therefore, edit the data file only if you are confident t
 
 ### Glossary
 
-- **Active Wedding**: The currently selected wedding that all actions (e.g., adding people or tables) apply to. You 
+- **Active Wedding**: The currently selected wedding that all actions (e.g., adding people or tables) apply to. You
   must use the `setWedding` command to set an active wedding.
-  
+
 - **Table ID**: A unique integer identifier (e.g., `1`, `5`, `12`) given to each table during the `addTable` command.
   Used for assigning and locating tables.
 
-- **Dietary Restriction**: Describes food requirements or allergies of a person. Acceptable values include: `NONE`, 
+- **Dietary Restriction**: Describes food requirements or allergies of a person. Acceptable values include: `NONE`,
   `VEGETARIAN`, `VEGAN`, `HALAL`, `SHELLFISH`, `PEANUTS`, `FISH`, `EGGS`, `SOY`, `SESAME`.
 
 - **RSVP**: Indicates whether a person has responded to an invitation. Valid values: `YES`, `NO`, `NO_RESPONSE`.
@@ -507,12 +503,12 @@ the data of your previous WeddingHero home folder.
 --------------------------------------------------------------------------------------------------------------------
 ## Command Summary
 
-| **Action**                | **Format, Examples**                                                                                                                                                      |
-|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **createWedding**         | `createWedding n/NAME`<br>Example: `createWedding n/John & Jane Wedding`                                                                                                  |
-| **deleteWedding**         | `deleteWedding n/NAME`<br>Example: `deleteWedding n/John & Jane Wedding`                                                                                                  |
-| **setWedding**            | `setWedding n/NAME`<br>Example: `setWedding n/Smith Wedding`                                                                                                              |
-| **weddingOverview**       | `weddingOverview`<br>Example: `weddingOverview`                                                                                                                           |
+| **Action**                | **Format, Examples**                                                                                                                                                 |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **createWedding**         | `createWedding n/NAME`<br>Example: `createWedding n/John & Jane Wedding`                                                                                             |
+| **deleteWedding**         | `deleteWedding n/NAME`<br>Example: `deleteWedding n/John & Jane Wedding`                                                                                             |
+| **setWedding**            | `setWedding n/NAME`<br>Example: `setWedding n/Smith Wedding`                                                                                                         |
+| **weddingOverview**       | `weddingOverview`<br>Example: `weddingOverview`                                                                                                                      |
 | **addPerson**             | `addPerson n/NAME p/PHONE e/EMAIL a/ADDRESS d/DIETARY_RESTRICTION r/RSVP`<br/>Example: `addPerson n/John Doe p/12345678 e/johndoe@example.com a/123 Street d/Vegan r/YES` |
 | **deletePerson**          | `deletePerson INDEX`<br>Example: `deletePerson 3`                                                                                                                    |
 | **Find**                  | `Find KEYWORD`<br>Example: `Find John`                                                                                                                               |
@@ -521,8 +517,7 @@ the data of your previous WeddingHero home folder.
 | **addPersonToTable**      | `addPersonToTable n/NAME tid/TABLE_ID`<br>Example: `addPersonToTable n/John Doe tid/1`                                                                               |
 | **deletePersonFromTable** | `deletePersonFromTable n/NAME tid/TABLE_ID`<br>Example: `deletePersonFromTable n/John Doe tid/1`                                                                     |
 | **deleteTable**           | `deleteTable tid/TABLE_ID`<br>Example: `deleteTable tid/1`                                                                                                           |
-| **findTable**             | `findTable [tid/TABLE_ID] [INDEX]`<br>Examples: `findTable tid/1`                                                                                   |
+| **findTable**             | `findTable [tid/TABLE_ID] [INDEX]`<br>Examples: `findTable tid/1` or `findTable 1`                                                                                   |
 | **getTables**             | `getTables`<br>Example: `getTables`                                                                                                                                  |
 | **Help**                  | `Help`                                                                                                                                                               |
 | **exit**                  | `exit`                                     
-
