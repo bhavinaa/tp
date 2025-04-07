@@ -215,7 +215,8 @@ Design Rationale:
   - Maintain clear context of which wedding you're working on
   - Explicitly confirm which wedding you want to work with at the start of each session
 </box>
-
+  
+  
 <box type="tip" seamless>
 Tips:
 
@@ -254,7 +255,7 @@ Provides an overview of the current active wedding, including details such as th
 
 Deletes a wedding from the system by name.
 
-**Format:** `deleteWedding WEDDINGNAME`
+**Format:** `deleteWedding n/WEDDINGNAME`
 
 - Permanently deletes the wedding identified by WEDDINGNAME.
 - WEDDINGNAME must match the exact name of the wedding you created. The comparison is case-insensitive but spacing 
@@ -267,6 +268,7 @@ Examples:
 <box type="warning" seamless>  This action is irreversible. Ensure you are deleting the correct wedding before confirming. </box>
 
 ---
+<div style="page-break-after: always;"></div>
 
 ## Managing Guests
 
@@ -274,7 +276,7 @@ Examples:
 
 Adds a guest to the current wedding's guest list.
 
-Format: `addPerson n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DIETARY_RESTRICTIONS r/RSVP [t/TAG]…​`
+Format: `addPerson n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS d/DIETARY_RESTRICTIONS r/RSVP [t/TAG]`
 
 Details:
 
@@ -384,6 +386,9 @@ Details:
 **Example:**
 - Running `list` will update the display to show all guests stored in the currently selected wedding.
 
+
+<div style="page-break-after: always;"></div>
+
 ## Managing Tables
 
 ---
@@ -473,6 +478,8 @@ example:
 - deletePersonFromTable n/John Doe tid/5 deletes the John Doe guest from the table with ID 5
 
 ---
+<div style="page-break-after: always;"></div>
+
 ### Exiting the program : `exit`
 
 Exits the program.
@@ -507,6 +514,8 @@ empty data file at the next run.  Hence, it is recommended to take a backup of t
 - Furthermore, certain edits can cause the WeddingHero to behave in unexpected ways (e.g., if a value entered is outside
 the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
+
+<div style="page-break-after: always;"></div>
 
 ### Glossary
 - **Guest**: Refers to an individual invited to attend the wedding. This term is used when discussing the context of the wedding event and the guest's participation in it.
@@ -559,6 +568,9 @@ the acceptable range). Therefore, edit the data file only if you are confident t
 - NO_RESPONSE
 
 ---
+
+<div style="page-break-after: always;"></div>
+
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
@@ -574,6 +586,9 @@ the data of your previous WeddingHero home folder.
    try our best to include more dietary restrictions in the future. Stay tuned!
 
 ---
+
+<div style="page-break-after: always;"></div>
+
 ## Command Summary
 
 | **Action**                | **Format, Examples**                                                                                                                                                     |
